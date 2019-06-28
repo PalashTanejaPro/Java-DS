@@ -1,3 +1,6 @@
+/**
+ * Resizeable arrays implemented without pointers
+ */
 class CustomVector {
 
     private int capacity;
@@ -6,14 +9,19 @@ class CustomVector {
     private static final int margin = 2; 
     private static final int defaultSize = 5; 
 
-    //TODO: function that checks and resizes if needed
-    
+    /**
+     * Takes in a size as @param usrSize
+     * Creates a private array with the size = closest power of 2 greater than usrSize
+     */
     public CustomVector(int usrSize){
         int power = (int)Math.ceil((double)Math.log(usrSize) / (double)Math.log(2));
         capacity = (int)Math.pow(2, power);
         array = new int[capacity];
     }
 
+    /**
+    * Fallback constructor in case no size is provided
+    */
     public CustomVector(){
         capacity = margin * defaultSize; 
         array = new int[capacity]; 
@@ -35,6 +43,10 @@ class CustomVector {
         }
     }
 
+    /**
+    * Returns the element at @param index 
+    * @throws IllegalArgumentException if @param index is out of bounds 
+    */
     public int at(int index) {
         if (index < usage) {
             return array[index];
@@ -42,6 +54,10 @@ class CustomVector {
             throw new IllegalArgumentException("Supplied index is out of bounds"); 
         }
     }
+
+    /**
+    * Inserts @param value at @param index and right-shifts all the elements to the right of @param index by one
+    */
 
     public void insert(int index, int value){   
         if(index > usage) {
@@ -67,6 +83,10 @@ class CustomVector {
         array = newArray; 
     }
 
+    /**
+    * Deletes the value at @param index and left-shifts all the elements to the right of @param index by one
+    */
+
     public void delete(int index) {
         if (index > usage) {
             throw new IllegalArgumentException("Supplied index is out of bounds");
@@ -87,6 +107,10 @@ class CustomVector {
         autoResize();
     }
 
+    /**
+    * Removes all instances of @param value and does the necessary shifting
+    */
+
     public void remove(int value) {
         int[] newArray = new int[capacity];
         int ctr = 0; 
@@ -102,6 +126,9 @@ class CustomVector {
         autoResize();
     }
 
+    /**
+    * @return the index of the first instance of @param value 
+    */
     public int find(int value) {
         for(int i = 0; i < usage; ++i) {
             if(array[i] == value) {
@@ -115,6 +142,10 @@ class CustomVector {
         insert(0, value);
     }
 
+    /**
+    * Updates the value at @param index to @param value
+    */
+
     public void update(int index, int value) {
         if (index < usage) {
             array[index] = value;
@@ -123,14 +154,20 @@ class CustomVector {
         }
     }
 
-    public int push(int val) {
-        array[usage] = val; 
+    /**
+    * Inserts @param value at the end of the array and resizes if needed 
+    */
+    public int push(int value) {
+        array[usage] = value; 
         usage++; 
         autoResize();
 
         return usage-1; 
     }
 
+    /**
+    * @return the value removed from the end of the array 
+    */
     public int pop() {
         int ret = array[--usage];
         autoResize();
@@ -150,6 +187,9 @@ class CustomVector {
         return ret; 
     }
 
+    /**
+    * Creates a new array of size @param newSize and replaces the underlying array with it
+    */
     private void resize(int newSize){
         int[] newArray = new int[newSize];
 
@@ -160,6 +200,9 @@ class CustomVector {
         capacity = newSize; 
     }
 
+    /**
+    * Determines if a resize is needed because of over-usage or under-usage of the array
+    */
     private void autoResize() {
         if (usage <= capacity / 4) {
             resize(capacity / 2);
