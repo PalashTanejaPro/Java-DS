@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestVector",
+            "request": "launch",
+            "mainClass": "TestVector"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GreeterTest",
+            "request": "launch",
+            "mainClass": "GreeterTest"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Hello",
+            "request": "launch",
+            "mainClass": "Hello"
+        }
+    ]
+}
