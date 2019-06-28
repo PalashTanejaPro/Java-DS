@@ -11,7 +11,7 @@ class CustomVector {
 
     /**
      * Takes in a size as @param usrSize
-     * Creates a private array with the size = closest power of 2 greater than usrSize
+     * Creates a private array with the size = first power of 2 greater than usrSize
      */
     public CustomVector(int usrSize){
         int power = (int)Math.ceil((double)Math.log(usrSize) / (double)Math.log(2));
