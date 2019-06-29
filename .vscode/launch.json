@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LinkedList",
+            "request": "launch",
+            "mainClass": "LinkedList"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TestVector",
             "request": "launch",
             "mainClass": "TestVector"

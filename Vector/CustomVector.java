@@ -9,6 +9,8 @@ class CustomVector {
     private static final int margin = 2; 
     private static final int defaultSize = 5; 
 
+    //TODO: make this work for any data type using Java generics
+
     /**
      * Takes in a size as @param usrSize
      * Creates a private array with the size = first power of 2 greater than usrSize
