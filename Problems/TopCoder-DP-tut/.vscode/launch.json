@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BadNeighbors",
+            "request": "launch",
+            "mainClass": "BadNeighbors"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ShortestPath",
             "request": "launch",
             "mainClass": "ShortestPath"
