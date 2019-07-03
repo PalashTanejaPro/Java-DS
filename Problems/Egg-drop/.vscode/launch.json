@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EggDrop",
+            "request": "launch",
+            "mainClass": "EggDrop"
+        }
+    ]
+}
